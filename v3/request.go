@@ -51,6 +51,10 @@ type Request struct {
 	// completed in full, it will not be restarted.
 	NoResume bool
 
+	// CanResume specifies that the remote server advertised that it can resume
+	// previous downloads, as the 'Accept-Ranges: bytes' header is set.
+	CanResume bool
+
 	// NoStore specifies that grab should not write to the local file system.
 	// Instead, the download will be stored in memory and accessible only via
 	// Response.Open or Response.Bytes.

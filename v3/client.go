@@ -270,7 +270,7 @@ func (c *Client) validateLocal(resp *Response) stateFunc {
 		return c.closeResponse
 	}
 
-	if resp.CanResume {
+	if resp.CanResume || resp.Request.CanResume {
 		// set resume range on GET request
 		resp.Request.HTTPRequest.Header.Set(
 			"Range",
